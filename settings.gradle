@@ -1,0 +1,5 @@
+rootProject.name = 'cucumber-multimodule'
+include 'micro:service1'
+include 'micro:service2'
+//findProject(':micro:service1')?.name = 'service1'
+
