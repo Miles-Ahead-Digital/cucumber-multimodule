@@ -1,19 +1,58 @@
 plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
-group 'milesahead'
-version '1.0-SNAPSHOT'
+group = 'milesahead'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '16'
 
 repositories {
     mavenCentral()
 }
 
+ext {
+    springCloudVersion = '2020.0.2'
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+implementation project(':micro:service1')
+    implementation project(':micro:service2')
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'io.cucumber:cucumber-java:6.10.3'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:6.10.3'
+    testImplementation 'io.cucumber:cucumber-spring:6.10.3'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
 
 test {
     useJUnitPlatform()
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+test {
+    useJUnitPlatform(){
+        excludeTags("disabled")
+    }
+    systemProperties(project.gradle.startParameter.systemPropertiesArgs)
+}
+
+
+bootJar {
+    enabled = false
+}
+jar {
+    enabled = true
 }
