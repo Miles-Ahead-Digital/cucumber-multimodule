@@ -20,6 +20,7 @@ dependencies {
 implementation project(':micro:service1')
     implementation project(':micro:service2')
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'io.cucumber:cucumber-java:6.10.3'
     testImplementation 'io.cucumber:cucumber-junit-platform-engine:6.10.3'
     testImplementation 'io.cucumber:cucumber-spring:6.10.3'

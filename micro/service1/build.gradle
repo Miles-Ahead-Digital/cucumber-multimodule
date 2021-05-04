@@ -21,3 +21,10 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+bootJar {
+    classifier = 'boot'
+}
+jar {
+    enabled = true
+}

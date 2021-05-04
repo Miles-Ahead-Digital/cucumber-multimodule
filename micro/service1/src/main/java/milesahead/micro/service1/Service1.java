@@ -10,6 +10,11 @@ public class Service1 {
         this.content = content;
     }
 
+    public Service1() {
+        this.id = 0;
+        this.content = null;
+    }
+
     public long getId() {
         return id;
     }
