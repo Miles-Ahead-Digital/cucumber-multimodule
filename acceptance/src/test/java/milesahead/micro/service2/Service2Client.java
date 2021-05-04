@@ -1,4 +1,4 @@
-package milesahead.micro.service1;
+package milesahead.micro.service2;
 
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.annotation.Scope;
@@ -9,10 +9,10 @@ import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 
 @Component
 @Scope(SCOPE_CUCUMBER_GLUE)
-public class Service1Client {
+public class Service2Client {
 
     private final String SERVER_URL = "http://localhost";
-    private final String THINGS_ENDPOINT = "/service1";
+    private final String THINGS_ENDPOINT = "/service2";
 
     @LocalServerPort
     private int port;
@@ -23,8 +23,8 @@ public class Service1Client {
         return SERVER_URL + ":" + port + THINGS_ENDPOINT;
     }
 
-    public Service1 getContents() {
-        return restTemplate.getForEntity(thingsEndpoint(), Service1.class).getBody();
+    public Service2 getContents() {
+        return restTemplate.getForEntity(thingsEndpoint(), Service2.class).getBody();
     }
 
 }

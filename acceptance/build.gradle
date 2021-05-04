@@ -17,7 +17,7 @@ ext {
 }
 
 dependencies {
-implementation project(':micro:service1')
+    implementation project(':micro:service1')
     implementation project(':micro:service2')
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
