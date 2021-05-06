@@ -33,15 +33,6 @@ dependencyManagement {
     }
 }
 
-test {
-    useJUnitPlatform()
-}
-
-configurations {
-    cucumberRuntime {
-        extendsFrom testImplementation
-    }
-}
 
 test {
     useJUnitPlatform(){
